@@ -26,7 +26,7 @@ emailInput.addEventListener('change', (e) => {
 
 // ----------------------------------------------------------
 
-class Persons {
+class Person {
   constructor(fName, lName, nName, email) {
     this.fName = fName;
     this.lName = lName;
@@ -39,7 +39,7 @@ class Persons {
 
 function collectProps(e) {
   e.preventDefault();
-  const person = new Persons(fName, lName, nName, email);
+  const person = new Person(fName, lName, nName, email);
   const jsonStringify = JSON.stringify(person);
   localStorage.setItem(lName, jsonStringify);
 }
