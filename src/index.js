@@ -1,6 +1,6 @@
 'use strict';
 
-const btnOk = document.querySelector('#btn-container > button:last-child'); // !
+const btnOk = document.querySelector('#btn-container > button:last-child');
 
 class Person {
   constructor(
