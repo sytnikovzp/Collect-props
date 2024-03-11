@@ -1,33 +1,14 @@
 'use strict';
 
-let fName, lName, nName, email;
-
-const fNameInput = document.querySelector('#f-name');
-const lNameInput = document.querySelector('#l-name');
-const nNameInput = document.querySelector('#nick-name');
-const emailInput = document.querySelector('#email');
-const btnOk = document.querySelector('#btn-container > button:last-child');
-
-fNameInput.addEventListener('change', (e) => {
-  fName = e.target.value;
-});
-
-lNameInput.addEventListener('change', (e) => {
-  lName = e.target.value;
-});
-
-nNameInput.addEventListener('change', (e) => {
-  nName = e.target.value;
-});
-
-emailInput.addEventListener('change', (e) => {
-  email = e.target.value;
-});
-
-// ----------------------------------------------------------
+const btnOk = document.querySelector('#btn-container > button:last-child'); // !
 
 class Person {
-  constructor(fName, lName, nName, email) {
+  constructor(
+    fName = document.getElementById('f-name').value,
+    lName = document.getElementById('l-name').value,
+    nName = document.getElementById('nick-name').value,
+    email = document.getElementById('email').value
+  ) {
     this.fName = fName;
     this.lName = lName;
     this.nName = nName;
@@ -35,13 +16,12 @@ class Person {
   }
 }
 
-// ----------------------------------------------------------
-
 function collectProps(e) {
   e.preventDefault();
-  const person = new Person(fName, lName, nName, email);
+  const person = new Person();
   const jsonStringify = JSON.stringify(person);
-  localStorage.setItem(lName, jsonStringify);
+  console.log(jsonStringify);
+  localStorage.setItem(document.getElementById('l-name').value, jsonStringify);
 }
 
 btnOk.addEventListener('click', collectProps);
